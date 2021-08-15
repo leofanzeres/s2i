@@ -4,9 +4,9 @@ Implementation of a sound-to-image (S2I) translation system using PyTorch
 
 <img src="images/StI_translator_scheme.png" width="900px"/>
 
-Sound-to-Imagination: Unsupervised Crossmodal Translation Using Deep Dense Network Architecture | [Arxiv](https://arxiv.org/abs/2106.01266)
+<p>Sound-to-Imagination: Unsupervised Crossmodal Translation Using Deep Dense Network Architecture</p>
 [Leonardo A. Fanzeres](https://futur.upc.edu/LeonardoAreiasFanzeres), [Climent Nadeu](https://futur.upc.edu/ClimentNadeuCamprubi)
-International Journal of Computer Vision (UNDER REVIEW)
+International Journal of Computer Vision (UNDER REVIEW), 2021 | [Arxiv](https://arxiv.org/abs/2106.01266)
 
 The motivation of our research is to develop a sound-to-image (S2I) translation system for enabling a human receiver to visually infer the occurrence of sound related events. We expect the computer to ‘imagine’ the scene from the captured sound, generating original images that picture the sound emitting source.
 
