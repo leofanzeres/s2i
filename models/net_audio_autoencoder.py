@@ -80,11 +80,7 @@ class Net(nn.Module):
 
         # DECODER
 
-<<<<<<< HEAD
         self.convT1 = nn.ConvTranspose2d(in_channels = conv_num_maps[12], out_channels = conv_num_maps[11], kernel_size = (3,3), stride = 1, padding=0)
-=======
-            self.convT1 = nn.ConvTranspose2d(in_channels = conv_num_maps[12], out_channels = conv_num_maps[11], kernel_size = (3,3), stride = 1, padding=0)
->>>>>>> fd4cc82a6c98bb4a46e583a053cb4364f73f89df
         self.convT1_bn = nn.BatchNorm2d(conv_num_maps[11])
         self.convT1_drop = nn.Dropout2d(0.15)
 
