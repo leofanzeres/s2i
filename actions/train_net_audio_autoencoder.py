@@ -25,20 +25,15 @@ w_decay = 0 # 0 / 5e-4 / 1e-4 / 1e-5
 best_acc = 0 # Best test accuracy
 start_epoch = 0 # Start from epoch 0 or last checkpoint epoch
 log_interval = 10 # How many batches to wait before logging training status
-MIN_PRECISION = 0 # Set the minimum desired precision
-max_precision = 0 # Maximum precision will be updated automatically
-loss_type = 0 # 0 for pixel_loss / 1 for perceptual_log_prob_loss / 2 for simple_perceptual_loss / 3 for feature_perceptual_loss
 ACTIVE_DROPOUT = True # Test time dropout
 activation_function = 'relu' # Activation options: sigmoid, relu, l_relu, elu, celu, selu, tanh, custom
 activation_alpha = 1.0 # 1.0 / 1/16
-MAX_LOSS = 0.0003 # Set the maximum desired loss / only pixel loss: 0.00023 / pixel + perceptual loss: 0.0003
+MAX_LOSS = 0.0003 # Set the maximum desired loss
 min_loss = 1000. # Minimum loss will be updated automatically
-PERCEPTUAL_LOSS_SCALE_FACTOR = 0.1 # Scale perceptual_loss to pixel_loss order of magnitude / 0.5 / simple-perceptual-loss 0.012 / feature_loss 10.0
 
 
 # Model
 print(str(datetime.datetime.now()) + ' ==> Building model..')
-
 net = net_audio_autoencoder.Net(len(v.VEGAS_CLASSES_INDEXES), mode='auto', activation=activation_function, activation_alpha=activation_alpha)
 net_a = net_audio.Net(len(v.VEGAS_CLASSES_INDEXES))
 
@@ -143,12 +138,9 @@ def test(epoch):
             if (m.__class__.__name__.startswith('Dropout')) | (m.__class__.__name__.startswith('AlphaDropout')):
                 m.train()
     test_pixel_loss = 0
-    test_perceptual_loss = 0
     test_loss = 0
     correct = 0
     global csv_row
-    global MIN_PRECISION
-    global max_precision
     global MAX_LOSS
     global min_loss
     with torch.no_grad():
@@ -170,9 +162,8 @@ def test(epoch):
             test_loss += loss.item()
 
     test_pixel_loss /= len(testloader.dataset)
-    test_perceptual_loss /= len(testloader.dataset)
     test_loss /= len(testloader.dataset)
-    csv_row += (round(test_pixel_loss,8), round(test_perceptual_loss,8), round(test_loss,8), correct, len(testloader.dataset),)
+    csv_row += (round(test_pixel_loss,8), round(test_loss,8), correct, len(testloader.dataset),)
     csv_str.append(csv_row)
     precision = 100. * correct / len(testloader.dataset)
 
@@ -180,8 +171,8 @@ def test(epoch):
         save_model(epoch)
         min_loss = test_loss
 
-    print('Test set: Average pixel-loss: {:.8f}, Average perceptual-loss: {:.8f}, Average loss: {:.8f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
-        test_pixel_loss, test_perceptual_loss, test_loss, correct, len(testloader.dataset), precision))
+    print('Test set: Average pixel-loss: {:.8f}, Average loss: {:.8f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
+        test_pixel_loss, test_loss, correct, len(testloader.dataset), precision))
 
 def save_model(epoch):
     torch.save(net.state_dict(), SAVE_PATH + 'epoch_' + str(epoch) + ').pth')
