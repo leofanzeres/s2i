@@ -6,7 +6,6 @@ from torch.nn.modules.module import _addindent
 import torchvision.transforms as transforms
 import datasets.vegas_visual_generator as vegas_visual_generator
 import numpy as np
-import argparse
 import utils as ut  # @UnresolvedImport
 import values as v
 
