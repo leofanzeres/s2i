@@ -13,16 +13,13 @@ The motivation of our research is to develop a sound-to-image (S2I) translation 
 ## Setup
 
 ### Requirements (tested versions)
-
-```
-cuda (9.0.176) + CuDNN
 matplotlib (2.2.2 to 3.1.1)
 numpy (1.14.2 to 1.17.2)
 python (3.5.2 to 3.7.4)
 scipy (1.0.1 to 1.3.1)
 torch (1.1.0)
 torchvision (0.3.0)
-```
+Can be executed in CPU mode, but it is recommended to run with cuda (9.0.176) + CuDNN
 
 ### Get Started
 1. Install Pytorch
