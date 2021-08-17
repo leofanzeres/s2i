@@ -28,7 +28,7 @@ Can be executed in CPU mode, but it is recommended to run in GPU with cuda (9.0.
 5. Download the audio autoencoder and the visual generator pretrained models (to be available)
 5. Execute a quantitative test using the interpretability classifiers (to be uploaded)
 6. Execute a qualitative test generating the translated images (to be uploaded)
-5. Train the autoencoder model from scratch executing models/train_net_audio_autoencoder.py
+5. Train the autoencoder model from scratch executing actions/train_net_audio_autoencoder.py
 5. Train the visual generator model from scratch and repot the achieved interpretability executing ... (to be uploaded)
 
 ## Acknowledgments
