@@ -50,6 +50,7 @@ elif AUDIO_EMBEDDING_DIMENSION == 2048:
 TRAINED_MODELS_AUTO_SAVE_DIR = '.../Trained_models_auto_save/' # add local path to trained models auto-save directory
 TRAINED_MODELS_DIR = '.../Trained_models/' # add local path to trained models directory
 
+AUDIO_NN_MODEL_FILE = TRAINED_MODELS_DIR + 'net_audio_model_(test_91_epoch_73).pth'
 if AUDIO_EMBEDDING_DIMENSION == 128:
     AUDIO_AUTOENCODER_NN_MODEL_FILE = TRAINED_MODELS_DIR + 'net_audio_autoencoder_model_(test_72_1-2_epoch_1999).pth'
 elif AUDIO_EMBEDDING_DIMENSION == 256:
@@ -62,11 +63,11 @@ elif AUDIO_EMBEDDING_DIMENSION == 2048:
     AUDIO_AUTOENCODER_NN_MODEL_FILE = TRAINED_MODELS_DIR + 'net_audio_autoencoder_model_(test_73_1-2_epoch_1995).pth'
 
 VISUAL_INTERPRET_NN_MODEL_FILE = [
-    TRAINED_MODELS_DIR + 'net_visual_interpret_model_C1_(test_2_R2_epoch_165).pth', 
-    TRAINED_MODELS_DIR + 'net_visual_interpret_model_C2_(test_2_R2_epoch_146).pth', 
-    TRAINED_MODELS_DIR + 'net_visual_interpret_model_C3_(test_2_R_epoch_220).pth', 
-    TRAINED_MODELS_DIR + 'net_visual_interpret_model_C4_(test_2_R5_epoch_205).pth', 
-    TRAINED_MODELS_DIR + 'net_visual_interpret_model_C5_(test_2_R2_epoch_224).pth'] 
+    TRAINED_MODELS_DIR + 'net_visual_interpret_model_C1_(test_2_R2_epoch_165).pth',
+    TRAINED_MODELS_DIR + 'net_visual_interpret_model_C2_(test_2_R2_epoch_146).pth',
+    TRAINED_MODELS_DIR + 'net_visual_interpret_model_C3_(test_2_R_epoch_220).pth',
+    TRAINED_MODELS_DIR + 'net_visual_interpret_model_C4_(test_2_R5_epoch_205).pth',
+    TRAINED_MODELS_DIR + 'net_visual_interpret_model_C5_(test_2_R2_epoch_224).pth']
 
 VISUAL_GENERATOR_NN_MODEL_FILE = TRAINED_MODELS_DIR + 'net_visual_generator_model_(test_191_R3_1-4_TS_epoch_3679).pth'
 DISCRIMINATOR_NN_MODEL_FILE = TRAINED_MODELS_DIR + 'net_discriminator_model_(test_191_R3_1-4_TS_epoch_3679).pth'
@@ -74,5 +75,5 @@ DISCRIMINATOR_NN_MODEL_FILE = TRAINED_MODELS_DIR + 'net_discriminator_model_(tes
 #=======================================================
 
 NUM_IMAGES_LIMIT_A = 1800
-NUM_IMAGES_LIMIT_AV_EMBEDDING_TO_IMAGE = 700 if (AUDIO_EMBEDDING_DIMENSION < 2048) else 500 
-MAX_FILES_PER_CLASS = -1 # -1 to get min-max number of all classes 
+NUM_IMAGES_LIMIT_AV_EMBEDDING_TO_IMAGE = 700 if (AUDIO_EMBEDDING_DIMENSION < 2048) else 500
+MAX_FILES_PER_CLASS = -1 # -1 to get min-max number of all classes
