@@ -11,13 +11,6 @@ import utils as ut
 import values as v
 
 
-parser = argparse.ArgumentParser(description='PyTorch VEGAS_AUDIO_10 Training')
-parser.add_argument('--lr', type=float, default=0.01, metavar='LR', help='learning rate (default: 0.01)')
-parser.add_argument('--resume', '-r', action='store_true', help='resume from checkpoint')
-parser.add_argument('--seed', type=int, default=1, metavar='S', help='random seed (default: 1)')
-parser.add_argument('--momentum', type=float, default=0.5, metavar='M', help='SGD momentum (default: 0.5)')
-parser.add_argument('--log-interval', type=int, default=10, metavar='N', help='how many batches to wait before logging training status')
-args = parser.parse_args()
 device = 'cuda' if torch.cuda.is_available() else 'cpu'  # @UndefinedVariable
 input_height = 128
 input_width = 100
