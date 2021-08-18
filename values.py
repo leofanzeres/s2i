@@ -62,6 +62,7 @@ elif AUDIO_EMBEDDING_DIMENSION == 1024:
 elif AUDIO_EMBEDDING_DIMENSION == 2048:
     AUDIO_AUTOENCODER_NN_MODEL_FILE = TRAINED_MODELS_DIR + 'net_audio_autoencoder_model_(test_73_1-2_epoch_1995).pth'
 
+VISUAL_NN_MODEL_FILE = TRAINED_MODELS_DIR + 'net_visual_model_(test_59_3_epoch_335).pth'
 VISUAL_INTERPRET_NN_MODEL_FILE = [
     TRAINED_MODELS_DIR + 'net_visual_interpret_model_C1_(test_2_R2_epoch_165).pth',
     TRAINED_MODELS_DIR + 'net_visual_interpret_model_C2_(test_2_R2_epoch_146).pth',
