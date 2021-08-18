@@ -34,7 +34,7 @@ class Net(nn.Module):
 
         self.input_feature_map_shape = input_feature_map_shape
         self.input_channels_num = input_channels_num
-        self.activation = [activation]*24 # activation options: sigmoid, relu, l_relu, elu, celu, selu, tanh
+        self.activation = [activation]*24 # activation options: sigmoid, relu, l_relu, softplus, elu, celu, selu, tanh
         self.activation_alpha = [activation_alpha]*24
 
         # Transition 0

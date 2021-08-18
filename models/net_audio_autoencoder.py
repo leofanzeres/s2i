@@ -26,7 +26,7 @@ class Net(nn.Module):
     def __init__(self, num_classes, mode='auto', activation='relu', activation_alpha=1.0):
         super(Net, self).__init__()
         self.mode = mode
-        self.activation = [activation]*24 # activation options: sigmoid, relu, l_relu, elu, celu, selu, tanh
+        self.activation = [activation]*24 # activation options: sigmoid, relu, l_relu, softplus, elu, celu, selu, tanh
         self.activation_alpha = [activation_alpha]*24
 
         # ENCODER

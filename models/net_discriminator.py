@@ -42,7 +42,7 @@ class Net(nn.Module):
     def __init__(self, conditioned=False, activation = 'relu', activation_alpha=1.0):
         super(Net, self).__init__()
         self.conditioned = conditioned
-        self.activation = activation # activation options: sigmoid, relu, l_relu, elu, celu, selu, tanh
+        self.activation = activation # activation options: sigmoid, relu, l_relu, softplus, elu, celu, selu, tanh
         self.activation_alpha = activation_alpha
 
         self.conv1 = nn.Conv2d(input_channels_num, conv1_num_maps, kernel_size=(5,5), stride=(2), bias=bias_conv) # original kernel_size=(7,5)
