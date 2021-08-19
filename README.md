@@ -24,7 +24,7 @@ Can be executed in CPU mode, but it is recommended to run in GPU with cuda (9.0.
 ### Get Started
 1. Install Pytorch and the other required packages listed above
 2. Clone or download this repository
-3. Download data binary files from https://github.com/leofanzeres/s2i_data.git (currently only audio data available)
+3. Download data binary files (currently only audio data available) from https://github.com/leofanzeres/s2i_data.git
 4. Execute a quantitative test using the interpretability classifiers (to be made available)
 5. Execute a qualitative test generating the translated images (to be made available)
 6. Train the autoencoder model from scratch executing actions/train_net_audio_autoencoder.py
