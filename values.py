@@ -9,10 +9,10 @@ AUDIO_EMBEDDING_DIMENSION = 512
 
 #=======================================================
 
-SPECS_DIR = '.../Spectrograms/' # add local path to spectrograms directory
+SPECS_DIR = '.../spectrograms/' # add local path to spectrograms directory
 
-SPECS_SEGMENTS_DIR = '.../Segments/' # add local path to spectrogram segments directory
-FRAMES_DIR = '.../Frames/' # add local path to frames directory
+SPECS_SEGMENTS_DIR = '.../segments/' # add local path to spectrogram segments directory
+FRAMES_DIR = '.../frames/' # add local path to frames directory
 
 SPECS_DIR_TRAIN = SPECS_DIR + 'train/'
 SPECS_SEGMENTS_DIR_TRAIN = SPECS_SEGMENTS_DIR + 'train/'
@@ -33,9 +33,9 @@ FRAMES_DIR_TEST = FRAMES_DIR + 'test/'
 BATCH_FILE_NAME_TEST = 'test_batch_'
 
 
-BATCHES_DIR = '.../Batches/' # add local path to batches directory
-BATCHES_AUDIO_DIR = BATCHES_DIR + 'Audio/Images_128x100/'
-BATCHES_VISUAL_DIR = BATCHES_DIR + 'Visual/Images_96x96_color/'
+BATCHES_DIR = 'data/batches/' # add local path to batches directory
+BATCHES_AUDIO_DIR = BATCHES_DIR + 'audio/spectrograms_128x100/'
+BATCHES_VISUAL_DIR = BATCHES_DIR + 'visual/images_96x96_color/'
 if AUDIO_EMBEDDING_DIMENSION == 128:
     BATCHES_AUDIO_VISUAL_EMBEDDING_TO_IMAGE_DIR = BATCHES_DIR + 'AudioVisual/Embeddings_128_to_images_AudioAutoencoder_72_1-2/'
 elif AUDIO_EMBEDDING_DIMENSION == 256:

@@ -25,7 +25,7 @@ Can be executed in CPU mode, but it is recommended to run in GPU with cuda (9.0.
 1. Install Pytorch and the other required packages listed above
 2. Clone or download this repository
 3. Download the datasets (to be available)
-4. Download the audio autoencoder and the visual generator pretrained models (to be available)
+4. Download the audio autoencoder and the visual generator pretrained models
 5. Execute a quantitative test using the interpretability classifiers (to be uploaded)
 6. Execute a qualitative test generating the translated images (to be uploaded)
 7. Train the autoencoder model from scratch executing actions/train_net_audio_autoencoder.py
