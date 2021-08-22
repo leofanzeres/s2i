@@ -9,10 +9,10 @@ AUDIO_EMBEDDING_DIMENSION = 512
 
 #=======================================================
 
-SPECS_DIR = '.../spectrograms/' # add local path to spectrograms directory
+SPECS_DIR = 'spectrograms/' # add local path to spectrograms directory
 
-SPECS_SEGMENTS_DIR = '.../segments/' # add local path to spectrogram segments directory
-FRAMES_DIR = '.../frames/' # add local path to frames directory
+SPECS_SEGMENTS_DIR = 'segments/' # add local path to spectrogram segments directory
+FRAMES_DIR = 'frames/' # add local path to frames directory
 
 SPECS_DIR_TRAIN = SPECS_DIR + 'train/'
 SPECS_SEGMENTS_DIR_TRAIN = SPECS_SEGMENTS_DIR + 'train/'
@@ -33,7 +33,7 @@ FRAMES_DIR_TEST = FRAMES_DIR + 'test/'
 BATCH_FILE_NAME_TEST = 'test_batch_'
 
 
-BATCHES_DIR = 'data/batches/' # add local path to batches directory
+BATCHES_DIR = 'batches/' # add local path to batches directory
 BATCHES_AUDIO_DIR = BATCHES_DIR + 'audio/spectrograms_128x100/'
 BATCHES_VISUAL_DIR = BATCHES_DIR + 'visual/images_96x96_color/'
 if AUDIO_EMBEDDING_DIMENSION == 128:
@@ -47,8 +47,8 @@ elif AUDIO_EMBEDDING_DIMENSION == 1024:
 elif AUDIO_EMBEDDING_DIMENSION == 2048:
     BATCHES_AUDIO_VISUAL_EMBEDDING_TO_IMAGE_DIR = BATCHES_DIR + 'audio_visual/embeddings_2048_to_images_audioautoencoder_73_1-2/'
 
-TRAINED_MODELS_AUTO_SAVE_DIR = '.../Trained_models_auto_save/' # add local path to trained models auto-save directory
-TRAINED_MODELS_DIR = '.../Trained_models/' # add local path to trained models directory
+TRAINED_MODELS_AUTO_SAVE_DIR = 'trained_models_auto_save/' # add local path to trained models auto-save directory
+TRAINED_MODELS_DIR = 'trained_models/' # add local path to trained models directory
 
 AUDIO_NN_MODEL_FILE = TRAINED_MODELS_DIR + 'net_audio_model_(test_91_epoch_73).pth'
 if AUDIO_EMBEDDING_DIMENSION == 128:
