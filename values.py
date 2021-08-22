@@ -37,15 +37,15 @@ BATCHES_DIR = 'data/batches/' # add local path to batches directory
 BATCHES_AUDIO_DIR = BATCHES_DIR + 'audio/spectrograms_128x100/'
 BATCHES_VISUAL_DIR = BATCHES_DIR + 'visual/images_96x96_color/'
 if AUDIO_EMBEDDING_DIMENSION == 128:
-    BATCHES_AUDIO_VISUAL_EMBEDDING_TO_IMAGE_DIR = BATCHES_DIR + 'AudioVisual/Embeddings_128_to_images_AudioAutoencoder_72_1-2/'
+    BATCHES_AUDIO_VISUAL_EMBEDDING_TO_IMAGE_DIR = BATCHES_DIR + 'audio_visual/embeddings_128_to_images_audioautoencoder_72_1-2/'
 elif AUDIO_EMBEDDING_DIMENSION == 256:
-    BATCHES_AUDIO_VISUAL_EMBEDDING_TO_IMAGE_DIR = BATCHES_DIR + 'AudioVisual/Embeddings_256_to_images_AudioAutoencoder_71_1-2/'
+    BATCHES_AUDIO_VISUAL_EMBEDDING_TO_IMAGE_DIR = BATCHES_DIR + 'audio_visual/embeddings_256_to_images_audioautoencoder_71_1-2/'
 elif AUDIO_EMBEDDING_DIMENSION == 512:
-    BATCHES_AUDIO_VISUAL_EMBEDDING_TO_IMAGE_DIR = BATCHES_DIR + 'AudioVisual/Embeddings_512_to_images_AudioAutoencoder_66_2/'
+    BATCHES_AUDIO_VISUAL_EMBEDDING_TO_IMAGE_DIR = BATCHES_DIR + 'audio_visual/embeddings_512_to_images_audioautoencoder_66_2/'
 elif AUDIO_EMBEDDING_DIMENSION == 1024:
-    BATCHES_AUDIO_VISUAL_EMBEDDING_TO_IMAGE_DIR = BATCHES_DIR + 'AudioVisual/Embeddings_1024_to_images_AudioAutoencoder_70_1-2/'
+    BATCHES_AUDIO_VISUAL_EMBEDDING_TO_IMAGE_DIR = BATCHES_DIR + 'audio_visual/embeddings_1024_to_images_audioautoencoder_70_1-2/'
 elif AUDIO_EMBEDDING_DIMENSION == 2048:
-    BATCHES_AUDIO_VISUAL_EMBEDDING_TO_IMAGE_DIR = BATCHES_DIR + 'AudioVisual/Embeddings_2048_to_images_AudioAutoencoder_73_1-2/'
+    BATCHES_AUDIO_VISUAL_EMBEDDING_TO_IMAGE_DIR = BATCHES_DIR + 'audio_visual/embeddings_2048_to_images_audioautoencoder_73_1-2/'
 
 TRAINED_MODELS_AUTO_SAVE_DIR = '.../Trained_models_auto_save/' # add local path to trained models auto-save directory
 TRAINED_MODELS_DIR = '.../Trained_models/' # add local path to trained models directory
