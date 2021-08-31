@@ -14,8 +14,6 @@ import values as v
 SAVE_IMAGES = True
 CLASSIFY_INTERPRET = True
 ACTIVE_DROPOUT_G = True
-ACTIVE_DROPOUT_B = True
-ACTIVE_DROPOUT_T = True
 blur_radius = 0
 activation_function_generator = 'relu' # activation options: sigmoid, relu, l_relu, softplus, elu, celu, selu, tanh
 activation_alpha_generator = 1.0

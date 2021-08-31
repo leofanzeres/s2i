@@ -13,6 +13,7 @@ The motivation of our research is to develop a sound-to-image (S2I) translation 
 ## Setup
 
 ### Requirements (tested versions)
+csv (1.0)<br/>
 matplotlib (2.2.2 to 3.1.1)<br/>
 numpy (1.14.2 to 1.17.2)<br/>
 python (3.5.2 to 3.7.4)<br/>
