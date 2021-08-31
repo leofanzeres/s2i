@@ -8,14 +8,6 @@ import datetime
 class VEGAS_AUDIO(data.Dataset):
     """ VEGAS - Visually Engaged and Grounded AudioSet (AudioSet subset 10 sounds)
         http://bvision11.cs.unc.edu/bigpen/yipin/visual2sound_webpage/visual2sound.html
-
-    Args:
-        root (string): Root directory of dataset where directory ``cifar-10-batches-py`` exists.
-        train (bool, optional): If True, creates dataset from training set, otherwise creates from test set.
-        transform (callable, optional): A function/transform that takes in an PIL image and returns a transformed version. 
-            E.g, ``transforms.RandomCrop``
-        target_transform (callable, optional): A function/transform that takes in the target and transforms it.
-            
     """
     train_data_size = 49435 # Entire train dataset: 49435
     test_data_size = 6920 # Entire val dataset: 5635 / Entire test dataset: 6920
@@ -106,13 +98,10 @@ class VEGAS_AUDIO(data.Dataset):
         else:
             img, target = self.test_data[index], self.test_labels[index]
 
-        # doing this so that it is consistent with all other datasets
-        # to return a PIL Image
-        # Cast array to type 'uint8'
         if self.input_channels_num == 1:
-            img = Image.fromarray(img.astype('uint8'), mode='L') # when loading images from an array
+            img = Image.fromarray(img.astype('uint8'), mode='L')
         else:
-            img = Image.fromarray(img.astype('uint8')) # when loading images from an array
+            img = Image.fromarray(img.astype('uint8'))
         
         if self.transform is not None:
             img = self.transform(img)
@@ -127,4 +116,5 @@ class VEGAS_AUDIO(data.Dataset):
             return len(self.train_data)
         else:
             return len(self.test_data)
+
 
