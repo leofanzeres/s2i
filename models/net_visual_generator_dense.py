@@ -5,6 +5,7 @@ import torch.nn.modules as nnmodules
 from torch.nn.modules.module import _addindent
 import torchvision.transforms as transforms
 import datasets.vegas_visual_generator as vegas_visual_generator
+import datasets.vegas_visual_generator_s2i as vegas_visual_generator_s2i
 import numpy as np
 import utils as ut  # @UnresolvedImport
 import values as v
@@ -351,16 +352,31 @@ def get_train_loader(shuffle=True):
     return trainloader
 
 
-def get_test_loader(shuffle=False):
+def get_test_loader(s2i=False, shuffle=False):
 
-    transform_test = None # No transformation because it is the embedding that is being loaded
+    if (s2i):
+        # The input data loaded are spectrograms that will need to be encoded before being fed to the net
+        transform_test = transforms.Compose([
+            transforms.Grayscale(1),
+            transforms.ToTensor(),
+            transforms.Normalize((0.5,), (0.5,))
+        ])
+    else:
+        transform_test = None # No transformation because it is the embedding that is being loaded
 
     target_transform_test = transforms.Compose([
         transforms.ToTensor(),
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
     ])
 
-    testset = vegas_visual_generator.VEGAS_VISUAL_GENERATOR(
+    if (s2i):
+        # The input data loaded are spectrograms that will need to be encoded before being fed to the net
+        testset = vegas_visual_generator_s2i.VEGAS_VISUAL_GENERATOR_S2I(
+            root=v.BATCHES_AUDIO_VISUAL_SPECTROGRAM_TO_IMAGE_DIR, label_length=label_length, input_height=input_height, input_width=input_width,
+            target_height=target_height, target_width=target_width, target_channels_num=target_channels_num, train=False, transform=transform_test,
+            target_transform=target_transform_test)  # @UndefinedVariable
+    else:
+        testset = vegas_visual_generator.VEGAS_VISUAL_GENERATOR(
             root=v.BATCHES_AUDIO_VISUAL_EMBEDDING_TO_IMAGE_DIR, label_length=label_length, input_length=audio_embedding_dim, target_height=target_height,
             target_width=target_width, target_channels_num=target_channels_num, train=False, transform=transform_test, target_transform=target_transform_test)  # @UndefinedVariable
 

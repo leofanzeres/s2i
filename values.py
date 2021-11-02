@@ -36,6 +36,7 @@ BATCH_FILE_NAME_TEST = 'test_batch_'
 BATCHES_DIR = 'batches/' # add local path to batches directory
 BATCHES_AUDIO_DIR = BATCHES_DIR + 'audio/spectrograms_128x100/'
 BATCHES_VISUAL_DIR = BATCHES_DIR + 'visual/images_96x96_color/'
+BATCHES_AUDIO_VISUAL_SPECTROGRAM_TO_IMAGE_DIR = BATCHES_DIR + 'audio_visual/spectrograms_to_images/'
 if AUDIO_EMBEDDING_DIMENSION == 128:
     BATCHES_AUDIO_VISUAL_EMBEDDING_TO_IMAGE_DIR = BATCHES_DIR + 'audio_visual/embeddings_128_to_images_audioautoencoder_72_1-2/'
 elif AUDIO_EMBEDDING_DIMENSION == 256:
