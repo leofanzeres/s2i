@@ -11,17 +11,25 @@ import values as v
 class VEGAS_VISUAL_GENERATOR(data.Dataset):
     """ VEGAS - Visually Engaged and Grounded AudioSet (AudioSet subset 10 sounds)
         http://bvision11.cs.unc.edu/bigpen/yipin/visual2sound_webpage/visual2sound.html
-        
+
         Each record of this dataset consists of:
           self.label_length bits: string with class id + video (or spectrogram) id + frame (or spectrogram window) id
           self.input_length * 4 bits (float values) representing the net_audio embedding
           self.target_height * self.target_width * 3 (channels) bits representing the correspondent color image
           Size of each record in bits: self.label_length + self.input_length * 4 + self.target_height * self.target_width * 3
+          
+    Args:
+        root (string): Root directory of dataset, i.e. where batches are stored.
+        train (bool, optional): If True, creates dataset from training set, otherwise creates from test set.
+        transform (callable, optional): A function/transform that takes in an PIL image and returns a transformed version.
+            E.g, ``transforms.RandomCrop``
+        target_transform (callable, optional): A function/transform that takes in the target and transforms it.
+
     """
 
     train_data_size = 48945 # Entire train dataset: 48945
     test_data_size = 6825 # Entire val dataset: 5575 / Entire test dataset: 6825
-    
+
     if v.AUDIO_EMBEDDING_DIMENSION < 2048:
         train_list = ['data_batch_001', 'data_batch_002', 'data_batch_003', 'data_batch_004', 'data_batch_005',
                       'data_batch_006', 'data_batch_007', 'data_batch_008', 'data_batch_009', 'data_batch_010',
@@ -37,10 +45,10 @@ class VEGAS_VISUAL_GENERATOR(data.Dataset):
                       'data_batch_056', 'data_batch_057', 'data_batch_058', 'data_batch_059', 'data_batch_060',
                       'data_batch_061', 'data_batch_062', 'data_batch_063', 'data_batch_064', 'data_batch_065',
                       'data_batch_066', 'data_batch_067', 'data_batch_068', 'data_batch_069', 'data_batch_070']
-        
+
 #         test_list = ['val_batch_001', 'val_batch_002', 'val_batch_003', 'val_batch_004', 'val_batch_005',
 #                      'val_batch_006', 'val_batch_007', 'val_batch_008']
-        
+
         test_list = ['test_batch_001', 'test_batch_002', 'test_batch_003', 'test_batch_004', 'test_batch_005',
                      'test_batch_006', 'test_batch_007', 'test_batch_008', 'test_batch_009', 'test_batch_010']
     else:
@@ -64,7 +72,7 @@ class VEGAS_VISUAL_GENERATOR(data.Dataset):
                       'data_batch_086', 'data_batch_087', 'data_batch_088', 'data_batch_089', 'data_batch_090',
                       'data_batch_091', 'data_batch_092', 'data_batch_093', 'data_batch_094', 'data_batch_095',
                       'data_batch_096', 'data_batch_097', 'data_batch_098']
-        
+
 #         test_list = ['val_batch_001', 'val_batch_002', 'val_batch_003', 'val_batch_004', 'val_batch_005',
 #                      'val_batch_006', 'val_batch_007', 'val_batch_008', 'val_batch_009', 'val_batch_010',
 #                      'val_batch_011', 'val_batch_012']
@@ -74,7 +82,7 @@ class VEGAS_VISUAL_GENERATOR(data.Dataset):
                      'test_batch_011', 'test_batch_012', 'test_batch_013', 'test_batch_014']
 
     def __init__(self, root, label_length, input_length, target_height, target_width, target_channels_num, train=True, transform=None, target_transform=None):
-        
+
         self.root = root
         self.label_length = label_length
         self.input_length = input_length
@@ -111,18 +119,18 @@ class VEGAS_VISUAL_GENERATOR(data.Dataset):
                         self.train_targets.append(int.from_bytes(b, byteorder='little'))
                         c2 += 1
                     c += 1
-                
+
                 fo.close()
 
             print(str(datetime.datetime.now()) + ' ==> Finished loading train data')
 
-            self.train_data = np.array(self.train_data)            
+            self.train_data = np.array(self.train_data)
             self.train_data = self.train_data.reshape((self.train_data_size, self.input_length))
             self.train_targets = np.array(self.train_targets)
             self.train_targets = self.train_targets.reshape((self.train_data_size, self.target_height, self.target_width, self.target_channels_num))
 
             print(str(datetime.datetime.now()) + ' ==> Finished reshaping train data')
-                
+
         else:
             self.test_data = []
             self.test_targets = []
@@ -146,7 +154,7 @@ class VEGAS_VISUAL_GENERATOR(data.Dataset):
                         self.test_targets.append(int.from_bytes(b, byteorder='little'))
                         c2 += 1
                     c += 1
-                
+
                 fo.close()
             print(str(datetime.datetime.now()) + ' ==> Finished loading test data')
             self.test_data = np.array(self.test_data)
@@ -159,7 +167,7 @@ class VEGAS_VISUAL_GENERATOR(data.Dataset):
         """
         Args:
             index (int): Index
-        
+
         Returns:
             tuple: (image, target) where target is index of the target class.
         """
@@ -169,15 +177,15 @@ class VEGAS_VISUAL_GENERATOR(data.Dataset):
             audio_embeddings, target_images, labels = self.test_data[index], self.test_targets[index], self.test_labels[index]
 
         audio_embeddings = torch.from_numpy(audio_embeddings).float()  # @UndefinedVariable
-        
+
         if self.target_channels_num == 1:
             target_images = Image.fromarray(target_images.astype('uint8'), mode='L')
         else:
             target_images = Image.fromarray(target_images.astype('uint8'))
-        
+
         if self.transform is not None:
             audio_embeddings = self.transform(audio_embeddings)
-   
+
         if self.target_transform is not None:
             target_images = self.target_transform(target_images)
 
@@ -188,5 +196,3 @@ class VEGAS_VISUAL_GENERATOR(data.Dataset):
             return len(self.train_data)
         else:
             return len(self.test_data)
-
-
