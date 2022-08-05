@@ -17,6 +17,9 @@ ACTIVE_DROPOUT_G = True
 blur_radius = 0
 activation_function_generator = 'relu' # activation options: sigmoid, relu, l_relu, softplus, elu, celu, selu, tanh
 activation_alpha_generator = 1.0
+NOISE_DIM = v.NOISE_VECTOR_DIM
+NOISE_MU = v.NOISE_MU # mean for generating noise vector
+NOISE_SIGMA = v.NOISE_SIGMA # standard deviation for generating noise vector
 # Set s2i to True only if you prefer to load spectrograms instead of audio embeddings, which implies that data will need to pass through
 # the audio encoder before entering the generator network.
 s2i = False

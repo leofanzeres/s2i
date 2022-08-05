@@ -6,6 +6,10 @@ VEGAS_CLASSES_INDEXES = [
     ["c005",4,"Water flowing"]]
 
 AUDIO_EMBEDDING_DIMENSION = 512
+EMBEDDING_NOISE_RATIO = 0.
+NOISE_VECTOR_DIM = int(AUDIO_EMBEDDING_DIMENSION*EMBEDDING_NOISE_RATIO) # generator noise vector dimension
+NOISE_MU = 0 # mean for generating noise vector
+NOISE_SIGMA = .035 # standard deviation for generating noise vector
 
 #=======================================================
 
