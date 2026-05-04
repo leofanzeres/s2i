@@ -18,7 +18,7 @@ import numpy as np
 import sys
 import argparse
 import utils as ut  # @UnresolvedImport
-import values_att as v
+import values as v
 if v.AUDIO_DATA_AUGMENTATION | v.TRAIN_AUDIO_ENCODER | (v.AUDIO_ENCODER_LAYER < 13):
     import datasets.vegas_visual_generator_s2i as vegas_visual_generator_s2i
 else:
