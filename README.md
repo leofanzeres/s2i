@@ -1,14 +1,23 @@
 # S2I Translation
 
-Implementation of a sound-to-image (S2I) translation system using PyTorch
+Implementation of a sound-to-image (S2I) translation system
 
 ![S2I translator training scheme](images/StI_translator_scheme.png)
 
-Sound-to-Imagination: Unsupervised Crossmodal Translation Using Deep Dense Network Architecture<br/>
-[Leonardo A. Fanzeres](https://futur.upc.edu/LeonardoAreiasFanzeres), [Climent Nadeu](https://futur.upc.edu/ClimentNadeuCamprubi)<br/>
-International Journal of Computer Vision (UNDER REVIEW), 2021 | [Arxiv](https://arxiv.org/abs/2106.01266)
+## Research
 
 The motivation of our research is to develop a sound-to-image (S2I) translation system for enabling a human receiver to visually infer the occurrence of sound related events. We expect the computer to ‘imagine’ the scene from the captured sound, generating original images that picture the sound emitting source.
+
+### Published papers
+Sound-to-imagination: an exploratory study on cross-modal translation using diverse audiovisual data<br/>
+[Leonardo A. Fanzeres](https://futur.upc.edu/LeonardoAreiasFanzeres), [Climent Nadeu](https://futur.upc.edu/ClimentNadeuCamprubi)<br/>
+Appl. Sci., vol. 13, no. 19, p. 10833, Jan. 2023, doi: 10.3390/app131910833 | [MDPI](https://www.mdpi.com/2076-3417/13/19/10833)<br/>
+<br/>
+Sound-to-image translation through direct cross-modal connection using a convolutional–attention generative model<br/>
+[Leonardo A. Fanzeres](https://futur.upc.edu/LeonardoAreiasFanzeres), [Climent Nadeu](https://futur.upc.edu/ClimentNadeuCamprubi), [José Adrián R. Fonollosa](https://futur.upc.edu/JoseAdrianRodriguezFonollosa)<br/>
+Appl. Sci., vol. 16, no. 6, p. 2942, Jan. 2026, doi: 10.3390/app16062942 | [MDPI](https://www.mdpi.com/2076-3417/16/6/2942)<br/>
+
+
 
 ## Setup
 
